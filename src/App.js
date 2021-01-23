@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Explore from './pages/Explore';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import BlogPage from './pages/BlogPage';
 
 /* Components */
 import Nav from './components/Nav';
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/explore" component={Explore} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/blog/:id" component={BlogPage} />
         </Switch>
       </div>
     </Router>

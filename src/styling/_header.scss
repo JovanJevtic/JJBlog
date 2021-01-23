@@ -1,8 +1,9 @@
 .header {
     height: 8vh;
     width: 100%;
-    background: #161b22;
+    background: #fff;
     position: fixed;
+    box-shadow: 1px 1px 3px rgb(185, 183, 183);
 
     nav {
         display: flex;
@@ -17,7 +18,7 @@
 
             .logo {
                 text-decoration: none;
-                color: #fff;
+                color: #000;
                 font-size: 24px;
                 font-weight: bold;
             }
@@ -32,7 +33,7 @@
             align-items: center;
 
             .nav-link {
-                color: #fff;
+                color: #000;
                 text-decoration: none;
             }
         }
