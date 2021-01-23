@@ -1,0 +1,40 @@
+.header {
+    height: 8vh;
+    width: 100%;
+    background: #161b22;
+    position: fixed;
+
+    nav {
+        display: flex;
+        height: 100%;
+        
+        .logo-wrapp {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .logo {
+                text-decoration: none;
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+
+        .nav-links {
+            flex: 1;
+            height: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .nav-link {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,10 +1,20 @@
 import { Link } from 'react-router-dom';
+import '../styling/style.css';
 
 const Nav = () => {
     return (
-        <div className="nav">
-            <Link to="/"> Home </Link>
-            <Link to="/explore"> Explore </Link>
+        <div className="header">
+            <nav className="container">
+                <div className="logo-wrapp">
+                    <Link to="/" className="logo">JJBlog</Link>
+                </div>
+                <ul className="nav-links">
+                    <li><Link className="nav-link" to="/"> Home </Link></li>
+                    <li><Link className="nav-link" to="/explore"> Explore </Link></li>
+                    <li><Link className="nav-link" to="/about"> About </Link></li>
+                    <li><Link className="nav-link" to="/contact"> Contact </Link></li>
+                </ul>
+            </nav>
         </div>
     );
 };
