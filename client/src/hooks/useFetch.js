@@ -10,9 +10,9 @@ const useFetch = (url) => {
         const abortCont = new AbortController;
         
         fetch(url, { signal: abortCont.signal })
-            .then(res => {
+            .then(res => {;
                 if(!res.ok) {
-                    throw Error('Failed to fetch data!');
+                    throw Error('Failed tojn fetch data!');
                 }
                 return res.json();
             })
@@ -30,7 +30,7 @@ const useFetch = (url) => {
                 }
             });
 
-        return abortCont.abort();
+        return () => abortCont.abort();
     }, [url]);
 
     return { data, isLoading, error }
