@@ -2,10 +2,14 @@ const express = require('express');
 const dotenv = require('dotenv').config()
 const mongoose = require('mongoose');
 
+//* App init
 const app = express();
 
 //* Middlewares
 app.use(express.json());
+
+//* Routes
+app.use('/api/blogs', require('./routes/blogs'));
 
 //* Database connection
 mongoose.connect( process.env.mongoURI , {useUnifiedTopology: true, useNewUrlParser: true});
