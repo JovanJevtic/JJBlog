@@ -10,8 +10,8 @@ const BlogsList = ({ blogs, title }) => {
                     <Link key={blog._id} className="blog-link" to={`/blog/${blog._id}`}>
                         <div className="blog">
                             <h1>{ blog.title }</h1>
-                            <p>{ blog.body }</p>
                             <p>{ blog.description }</p>
+                            <p>Written by: { blog.author }</p>
                             <Moment format="YYYY/MM/DD" date={blog.date} />
                         </div>
                     </Link>
