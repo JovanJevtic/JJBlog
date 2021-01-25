@@ -46,10 +46,44 @@ router.post('/', async (req, res) => {
     }
 });
 
-
 //* Delete blog
+router.delete('/:id', async (req, res) => {
+    const blog = await Blog.findById(req.params.id);
 
+    if (blog) {
+      try {
+        await blog.remove();
+        res.json({ message: 'Sucessfully deleted' });
+      } catch(err) {
+        res.status(500).json({ message: err.message });
+      }
+    } else {
+      res.status(404).json({ message: 'The blog you are looking for does not exist' });
+    }
+});
 
 //* Update blog
+router.patch('/:id', async (req, res) => {
+    const {
+        title,
+        description,
+        author, 
+        body
+      } = req.body;
+    
+      const blog = await Blog.findById(req.params.id);
+    
+      if (blog) {
+        blog.title = title;
+        blog.description = description;
+        blog.author = author;
+        blog.body = body;
+        
+        const updatedBlog = await blog.save();
+        res.json(updatedBlog);
+      } else {
+        res.status(404).json({ message: 'The blog you are looking for does not exist' });
+      }
+});
 
 module.exports = router;
