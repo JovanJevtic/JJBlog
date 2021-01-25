@@ -5,7 +5,7 @@ import Blog from '../components/Blog';
 const BlogPage = () => {
     
     const { id } = useParams();    
-    const { data: blog, isLoading, error } = useFetch(`http://localhost:5000/api/blogs/${id}`);
+    const { data: blog, isLoading, error } = useFetch(`https://jevdev.herokuapp.com/api/blogs/${id}`);
 
     return (
         <div className="container">

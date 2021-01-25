@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFetch';
 
 const Home = () => {
     
-    const { data: blogs, isLoading, error } = useFetch('http://localhost:5000/api/blogs/');
+    const { data: blogs, isLoading, error } = useFetch('https://jevdev.herokuapp.com/api/blogs/');
     
     return (
         <div className="home-page page container">

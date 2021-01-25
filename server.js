@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 //* Cors
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = ['http://localhost:3000', 'https://jevdev.herokuapp.com/'];
 app.use(cors({
     origin: allowedOrigins
 }));
