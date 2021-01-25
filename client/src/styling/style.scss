@@ -26,3 +26,12 @@
     text-decoration: none;
     color: #000;
 }
+.loading {
+    position: fixed;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+}
