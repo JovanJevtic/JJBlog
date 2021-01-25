@@ -1,12 +1,19 @@
 const express = require('express');
 const dotenv = require('dotenv').config()
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 //* App init
 const app = express();
 
 //* Middlewares
 app.use(express.json());
+
+//* Cors
+const allowedOrigins = ['http://localhost:3000'];
+app.use(cors({
+    origin: allowedOrigins
+}));
 
 //* Routes
 app.use('/api/blogs', require('./routes/blogs'));
