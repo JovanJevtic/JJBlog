@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
 const BlogsList = ({ blogs, title }) => {
-    return (
+
+    return (    
         <div className="blogs-list">
             <h2>{ title }</h2>
             {
