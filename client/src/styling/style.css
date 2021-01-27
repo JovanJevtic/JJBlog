@@ -128,6 +128,7 @@
 
 .blog-preview:hover {
   border: 1px solid #dfdede;
+  background: #fff;
 }
 
 .blog-preview-container {
