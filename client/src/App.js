@@ -6,6 +6,7 @@ import Explore from './pages/Explore';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import BlogPage from './pages/BlogPage';
+import NewPage from './pages/NewBlog';
 
 /* Components */
 import Nav from './components/Nav';
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/blog/:id" component={BlogPage} />
+          <Route path="/new" component={NewPage} />
         </Switch>
       </div>
     </Router>
