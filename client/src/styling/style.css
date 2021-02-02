@@ -68,8 +68,15 @@
 }
 
 .container {
-  width: 70%;
+  width: 94%;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 750px) {
+  .container {
+    width: 70%;
+    margin: 0 auto;
+  }
 }
 
 .App {
