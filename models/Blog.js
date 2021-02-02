@@ -25,13 +25,7 @@ const BlogSchema = new mongoose.Schema({
     thumbnailImage: {
         type: String, 
         required: false 
-    },
-    bodyImages: [
-        {
-            type: String, 
-            required: false 
-        }
-    ]
+    }
 });
 
 module.exports = mongoose.model('Blog', BlogSchema);
