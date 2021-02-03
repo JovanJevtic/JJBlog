@@ -15,7 +15,7 @@ const Home = () => {
     }, [blogs])
 
     return (
-        <div className="home-page page container">
+        <div className="home-page page">
             { isLoading && <Loading /> }
             { blogs && <BlogsList blogs={reversedBlogs} title="All blogs!" />}
             { error && <h1>Something went wrong</h1> }

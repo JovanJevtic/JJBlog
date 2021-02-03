@@ -14,20 +14,16 @@
 
 @media screen and (min-width: 750px) {
     .container {
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
     }
 }
 
 .App {
-    min-height: 100vh;
     width: 100%;
+    height: 100%;
     background: #eef0f1;
     color: #000;
-}
-
-.nav-gap {
-    height:  8vh;
 }
 
 .blog-link {
@@ -54,16 +50,10 @@
     min-height: 170px;
     width: 70%;
     margin-bottom: 20px;
-    background: rgb(248, 247, 247);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background: #fff;
     border-radius: 3px;
-    border: 1px solid #eee;
+    border: 1px solid rgb(212, 211, 211);
     transition: .3s;
-
-    &:hover {
-        border: 1px solid rgb(223, 222, 222);
-        background: #fff;
-    }
 }
 
 .blog-preview-container {
@@ -72,4 +62,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.left-nav {
+    height: 100%;
+    flex: 1;
+}
+
+.right-nav {
+    height: 100%;
+    flex: 1;
+}
+
+.page {
+    flex: 3;
 }

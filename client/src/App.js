@@ -11,20 +11,30 @@ import NewPage from './pages/NewBlog';
 /* Components */
 import Nav from './components/Nav';
 
+import './styling/style.css';
+
 const App = () => {
   return (
     <Router>
       <div className="App">
         <Nav />
-        <div className="nav-gap"></div>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/explore" component={Explore} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/blog/:id" component={BlogPage} />
-          <Route path="/new" component={NewPage} />
-        </Switch>
+        <div className="header-gap"></div>
+        <div className="content">
+          <div className="left-nav">
+
+          </div>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/explore" component={Explore} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/blog/:id" component={BlogPage} />
+            <Route path="/new" component={NewPage} />
+          </Switch>
+          <div className="right-nav">
+
+          </div>
+        </div>
       </div>
     </Router>
   );
