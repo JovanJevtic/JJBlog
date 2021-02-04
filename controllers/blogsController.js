@@ -35,6 +35,7 @@ const uploadBlog = async (req, res, next) => {
         description: req.body.description,
         author: req.body.author,
         body: req.body.body,
+        thumbnail: req.file.path
     });
       
     try {
