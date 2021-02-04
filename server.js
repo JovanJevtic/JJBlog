@@ -26,8 +26,9 @@ app.use('/api/blogs', require('./routes/blogs'));
 mongoose.connect( process.env.mongoURI , {useUnifiedTopology: true, useNewUrlParser: true});
 const db = mongoose.connection;
 
-//* Static files serve
+//* Static files serves
 let dirname = path.resolve()
+app.use('/uploads', express.static(path.join(dirname, '/uploads')));
 const environment = process.env.NODE_ENV;
 
 if (environment === 'production') {

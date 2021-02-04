@@ -9,6 +9,7 @@ const Blog = ({ blog }) => {
             <p>Date: <Moment format="DD/MM/YYYY" date={blog.date} /></p>
             <p>{ blog.description }</p>
             <MDEditor.Markdown source={blog.body} />
+            <img src={blog.thumbnail} />
         </div>
     );
 };
