@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
 const upload = require('../middlewares/multer');
+//const cloudinaryUploader = require('../middlewares/cloudinary');
+const cloudinary = require('../config/cloudinary');
 
 const {
   getAllBlogs,
@@ -18,7 +19,10 @@ router.get('/', getAllBlogs);
 router.get('/:id', getSingleBlog);
 
 //* Upload blog
-router.post('/', upload.single('thumbnail'), uploadBlog);
+router.post('/', upload.single('thumbnail'), async (req, res) => {
+  const result = await cloudinary.uploader.upload(req.file.path);
+  res.send(result);
+}, uploadBlog);
 
 //* Delete blog
 router.delete('/:id', deleteBlog);
