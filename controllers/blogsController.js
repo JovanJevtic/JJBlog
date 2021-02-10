@@ -1,5 +1,8 @@
 require('../routes/blogs');
 const Blog = require('../models/Blog');
+const { storage, fileFilter } = require('../middlewares/multer');
+const multer = require('multer');
+const cloudinary = require('../config/cloudinary');
 
 // Get All Blogs
 const getAllBlogs = async (req, res, next) => {
@@ -30,20 +33,59 @@ const getSingleBlog = async (req, res, next) => {
 
 // Upload Blog
 const uploadBlog = async (req, res, next) => {
-    const blog = new Blog({
-        title: req.body.title,
-        description: req.body.description,
-        author: req.body.author,
-        body: req.body.body,
-        thumbnail: req.file.path
+
+    const upload = multer({
+        storage: storage,
+        limits: {
+          fileSize: 1024 * 1024 * 5 
+        },
+        fileFilter: fileFilter
+    }).single('thumbnail');
+
+    upload(req, res, err => {
+        if (err) {
+          return res.send(err);
+        }
+    
+        console.log('file uploaded to server');
+        console.log(req.file);
+
+        const path = req.file.path;
+        const uniqueFilename = new Date().toISOString();
+
+        let thumbnailObject = {};
+
+        cloudinary.uploader.upload(
+            path,
+            { public_id: `blog/${uniqueFilename}`, tags: `blog` },
+            function(err, image) {
+              if (err) return res.send(err);
+              console.log('file uploaded to Cloudinary');
+              const fs = require('fs');
+              fs.unlinkSync(path);
+              thumbnailObject = image;
+
+                const uploadToServer = async () => {
+                    const blog = new Blog({
+                        title: req.body.title,
+                        description: req.body.description,
+                        author: req.body.author,
+                        body: req.body.body,
+                        thumbnail: thumbnailObject
+                    });
+                    
+                    try {
+                        const newBlog = await blog.save();
+                        res.status(201).json(newBlog); 
+                    } catch(err) {
+                        res.status(400).json({ message: 'Something went wrong, please try again' });
+                    }
+                }
+
+                uploadToServer();
+            }
+        )
     });
-      
-    try {
-        const newBlog = await blog.save();
-        res.status(201).json(newBlog); 
-    } catch(err) {
-        res.status(400).json({ message: 'Something went wrong, please try again' });
-    }
 }
 
 // Update Blog

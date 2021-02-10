@@ -12,6 +12,7 @@ const Home = () => {
         if (blogs) {
             setReversedBlogs(blogs.reverse());
         }
+        console.log(blogs)
     }, [blogs])
 
     return (
