@@ -57,14 +57,12 @@ const uploadBlog = async (req, res, next) => {
 
         cloudinary.uploader.upload(
             path,
-            { public_id: `blog/${uniqueFilename}`, tags: `blog` }, // directory and tags are optional
+            { public_id: `blog/${uniqueFilename}`, tags: `blog` },
             function(err, image) {
-              if (err) return res.send(err)
-              console.log('file uploaded to Cloudinary')
-              // remove file from server
-              const fs = require('fs')
-              fs.unlinkSync(path)
-              // return image details
+              if (err) return res.send(err);
+              console.log('file uploaded to Cloudinary');
+              const fs = require('fs');
+              fs.unlinkSync(path);
               thumbnailObject = image;
 
                 const uploadToServer = async () => {
