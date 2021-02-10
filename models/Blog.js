@@ -22,9 +22,9 @@ const BlogSchema = new mongoose.Schema({
         type: String,
         required: false 
     },
-    thumbnailImage: {
-        type: String, 
-        required: false 
+    thumbnail: {
+        type: Object, 
+        required: true 
     }
 });
 

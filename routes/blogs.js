@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const upload = require('../middlewares/multer');
-
 const {
   getAllBlogs,
   getSingleBlog,
@@ -18,7 +16,7 @@ router.get('/', getAllBlogs);
 router.get('/:id', getSingleBlog);
 
 //* Upload blog
-router.post('/', upload.single('thumbnail'), uploadBlog);
+router.post('/', uploadBlog);
 
 //* Delete blog
 router.delete('/:id', deleteBlog);
