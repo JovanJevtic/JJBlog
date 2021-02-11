@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-//* App init
+//* App init 
 const app = express();
 
 //* Middlewares
@@ -14,7 +14,7 @@ app.use(bodyParser.json({limit: '50mb', extended: true}))
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 
 //* Cors
-const allowedOrigins = ['http://localhost:3000', 'https://jevdev.herokuapp.com/', 'http://jevdev.herokuapp.com/'];
+const allowedOrigins = ['http://localhost:3000', 'http://jevdevs.herokuapp.com/', 'https://jevdevs.herokuapp.com/'];
 app.use(cors({
     origin: allowedOrigins
 }));
