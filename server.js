@@ -22,6 +22,15 @@ app.use(function(req, res, next) {
   next();
 });
 
+//* Redirecting ti https
+app.use(function (req, res, next) {
+  if (req.secure) {
+    next();
+  } else {
+    res.redirect('https://' + req.headers.host + req.url);
+  }
+});
+
 //* Routes
 app.use('/api/blogs', require('./routes/blogs'));
 
