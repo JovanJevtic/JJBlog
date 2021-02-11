@@ -1,6 +1,6 @@
 {
-  "proxy": "https://jevdev.herokuapp.com/",
-  "name": "jjblog",
+  "proxy": "https://jevdevs.herokuapp.com/",
+  "name": "jevdevs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
