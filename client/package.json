@@ -1,5 +1,5 @@
 {
-  "proxy": "https://jevdevs.herokuapp.com/",
+  //"proxy": "https://jevdevs.herokuapp.com/",
   "name": "jevdevs",
   "version": "0.1.0",
   "private": true,
