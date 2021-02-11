@@ -6,7 +6,7 @@ import Loading from '../components/Loading';
 const BlogPage = () => {
     
     const { id } = useParams();    
-    const { data: blog, isLoading, error } = useFetch(`https://jevdev.herokuapp.com/api/blogs/${id}`);
+    const { data: blog, isLoading, error } = useFetch(`https://jevdevs.herokuapp.com/api/blogs/${id}`);
 
     return (
         <div className="container">

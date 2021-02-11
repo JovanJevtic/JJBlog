@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch';
 
 const Home = () => {
     
-    const { data: blogs, isLoading, error } = useFetch('https://jevdev.herokuapp.com/api/blogs/');
+    const { data: blogs, isLoading, error } = useFetch('https://jevdevs.herokuapp.com/api/blogs/');
     const [ reversedBlogs, setReversedBlogs ] = useState([]);
     
     useEffect(() => {

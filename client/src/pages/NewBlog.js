@@ -23,7 +23,7 @@ const NewBlog = () => {
         const blog = { title, description, author, body };
 
         if (blog.body !== '') {
-            fetch('https://jevdev.herokuapp.com/api/blogs/', {
+            fetch('https://jevdevs.herokuapp.com/api/blogs/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(blog)
