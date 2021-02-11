@@ -1,3 +1,3 @@
-# JevDev Blog - Personal blog website
-## Hosted on: https://jevdev.herokuapp.com/
+# JevDevs - Social media for developers
+## Hosted on: https://jevdevs.herokuapp.com/
 ### In development
