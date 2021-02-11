@@ -3,15 +3,14 @@ const dotenv = require('dotenv').config()
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
-const bodyParser = require('body-parser');
 
 //* App init
 const app = express();
 
 //* Middlewares
 app.use(express.json());
-app.use(bodyParser.json({limit: '50mb', extended: true}))
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 //* Cors
 const allowedOrigins = ['http://localhost:3000', 'https://jevdev.herokuapp.com/', 'http://jevdev.herokuapp.com/'];

@@ -10,7 +10,7 @@ const useFetch = (url) => {
         const abortCont = new AbortController;
 
         setTimeout(() => {
-            fetch(url, { signal: abortCont.signal })
+            fetch(url, { mode: 'no-cors' ,signal: abortCont.signal })
                 .then(res => {;
                     if(!res.ok) {
                         throw Error('Failed tojn fetch data!');
