@@ -3,6 +3,7 @@ const dotenv = require('dotenv').config()
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const sslRedirect = require('heroku-ssl-redirect').default;
 
 //* App init
 const app = express();
@@ -17,6 +18,9 @@ const allowedOrigins = ['http://localhost:3000', 'https://jevdev.herokuapp.com/'
 app.use(cors({
     origin: allowedOrigins
 }));
+
+//* Redirect from http to https
+app.use(sslRedirect(['production']));
 
 //* Routes
 app.use('/api/blogs', require('./routes/blogs'));
