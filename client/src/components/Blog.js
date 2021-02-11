@@ -3,7 +3,7 @@ import MDEditor from '@uiw/react-md-editor';
 
 const Blog = ({ blog }) => {
 
-    console.log(blog)
+    console.log(blog.thumbnail.url)
 
     return (
         <div className="blog">
@@ -11,9 +11,7 @@ const Blog = ({ blog }) => {
             <p>Written by: { blog.author } </p>
             <p>Date: <Moment format="DD/MM/YYYY" date={blog.date} /></p>
             <p>{ blog.description }</p>
-            <img src={blog.thumbnail} />
             <MDEditor.Markdown source={blog.body} />
-            <img src={blog.thumbnail} />
         </div>
     );
 };
