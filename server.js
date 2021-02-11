@@ -14,7 +14,7 @@ app.use(bodyParser.json({limit: '50mb', extended: true}))
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 
 //* Cors
-const allowedOrigins = ['http://localhost:3000', 'https://jevdev.herokuapp.com/'];
+const allowedOrigins = ['http://localhost:3000', 'https://jevdev.herokuapp.com/', 'http://jevdev.herokuapp.com/'];
 app.use(cors({
     origin: allowedOrigins
 }));
