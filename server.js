@@ -9,12 +9,11 @@ const sslRedirect = require('heroku-ssl-redirect').default;
 const app = express();
 
 //* Middlewares
-app.use(express.json());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 //* Cors
-const allowedOrigins = ['http://localhost:3000', 'https://jevdev.herokuapp.com/', 'http://jevdev.herokuapp.com/'];
+const allowedOrigins = ['http://localhost:3000', 'https://jevdevs.herokuapp.com/', 'http://jevdevs.herokuapp.com/'];
 app.use(cors({
     origin: allowedOrigins
 }));
