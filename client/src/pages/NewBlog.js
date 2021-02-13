@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import MDEditor from '@uiw/react-md-editor';
+import axios from 'axios';
 
 const NewBlog = () => {
 
@@ -7,6 +8,7 @@ const NewBlog = () => {
     const [ title, setTitle ] = useState('');
     const [ author, setAuthor ] = useState('');
     const [ description, setDescription ] = useState('');
+    const [ thumbnail, setThumbnail ] = useState('');
 
     const [ previewMode, setPreviewMode ] = useState('');
     const [ editorHeight, setEditorHeight ] = useState(0);
@@ -20,21 +22,27 @@ const NewBlog = () => {
     const formSubmit = (e) => {
         e.preventDefault();
 
-        const blog = { title, description, author, body };
+        const blog = { title, author, description, body, thumbnail };
 
-        if (blog.body !== '') {
-            fetch('https://jevdevs.herokuapp.com/api/blogs/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(blog)
-            }).then(() => {
-                console.log(`New blog added: ${blog}`)
-                setTitle('');
-                setBody('');
-                setAuthor('');
-                setDescription('');
-            });
+        const blogData = new FormData();
+        for (const key in blog) {
+            blogData.append(key, blogData[key]);
         }
+
+        sendData(blogData)
+    };
+    
+    const sendData = async (data) => {
+        const response = await axios({
+            method: 'POST',
+            mode: 'no-cors',
+            url: 'https://jevdevs.herokuapp.com/api/blogs',
+            data: data,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        await console.log(response)
     }
 
     return (
@@ -45,9 +53,10 @@ const NewBlog = () => {
 
                     <input type="text" required={true} name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
                     <input type="text" required={true} name="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
-                    <input type="text" required={true} name="description" value={description} onChange={(e) => setDescription(e.target.value)}  />
+                    <input type="text" required={false} name="description" value={description} onChange={(e) => setDescription(e.target.value)}  />
+                    <input type="file" required={false} name="thumbnail" onChange={(e) => setThumbnail(e.target.files[0])} />
 
-                    <button type="submit">Submit</button>
+                    <button onClick={formSubmit} >Submit</button>
                 </form>
 
                 <MDEditor
