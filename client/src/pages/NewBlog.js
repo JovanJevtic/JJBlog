@@ -25,18 +25,20 @@ const NewBlog = () => {
         const blog = { title, author, description, body, thumbnail };
 
         const blogData = new FormData();
-        for (const key in blog) {
-            blogData.append(key, blogData[key]);
-        }
+        blogData.append('title', title);
+        blogData.append('author', author);
+        blogData.append('description', description);
+        blogData.append('tbodyitle', body);
+        blogData.append('thumbnail', thumbnail);
 
-        sendData(blogData)
+        sendData(blogData);
     };
     
     const sendData = async (data) => {
         const response = await axios({
             method: 'POST',
             mode: 'no-cors',
-            url: 'https://jevdevs.herokuapp.com/api/blogs',
+            url: 'http://localhost:5000/api/blogs',
             data: data,
             headers: {
                 'Content-Type': 'multipart/form-data'
