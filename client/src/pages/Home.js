@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch';
 
 const Home = () => {
     
-    const { data: blogs, isLoading, error } = useFetch('http://localhost:5000/api/blogs/');
+    const { data: blogs, isLoading, error } = useFetch(`api/blogs`);
     const [ reversedBlogs, setReversedBlogs ] = useState([]);
     
     useEffect(() => {

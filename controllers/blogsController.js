@@ -48,7 +48,7 @@ const uploadBlog = async (req, res, next) => {
         }
     
         console.log('file uploaded to server');
-        console.log(req);
+        console.log(req.file);
 
         const path = req.file.path;
         const uniqueFilename = new Date().toISOString();
@@ -81,7 +81,6 @@ const uploadBlog = async (req, res, next) => {
                         res.status(400).json({ message: 'Something went wrong, please try again' });
                     }
                 }
-
                 uploadToServer();
             }
         )

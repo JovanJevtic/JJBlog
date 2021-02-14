@@ -10,8 +10,8 @@ const BlogsList = ({ blogs, title }) => {
             <h2>{ title }</h2>
             {
                 blogs.map(blog => (
-                    <div className="blogPreview">
-                        <Link key={blog._id} to={`/blog/${blog._id}`} className="blog-preview">
+                    <div key={blog._id} className="blogPreview">
+                        <Link to={`/blog/${blog._id}`} className="blog-preview">
 
                             <Image style={{width: '100%', maxHeight: '420px', objectFit: 'cover'}} cloud_name="jovan" crop="scale" publicId={blog.thumbnail.public_id} />
 
