@@ -43,13 +43,10 @@ const uploadBlog = async (req, res, next) => {
     }).single('thumbnail');
 
     upload(req, res, err => {
-        if (err) {
+        if (err || !req.file) {
           return res.send(err);
         }
-    
-        console.log('file uploaded to server');
-        console.log(req.file);
-
+  
         const path = req.file.path;
         const uniqueFilename = new Date().toISOString();
 
