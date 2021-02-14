@@ -43,8 +43,28 @@ const uploadBlog = async (req, res, next) => {
     }).single('thumbnail');
 
     upload(req, res, err => {
-        if (err || !req.file) {
+        if (err) {
           return res.send(err);
+        }
+
+        if (!req.file) {
+          const uploadToServer = async () => {
+            const blog = new Blog({
+                title: req.body.title,
+                description: req.body.description,
+                author: req.body.author,
+                body: req.body.body
+            });
+            
+            try {
+                const newBlog = await blog.save();
+                res.status(201).json(newBlog); 
+            } catch(err) {
+                res.status(400).json({ message: 'Something went wrong, please try again' });
+            }
+        }
+
+        uploadToServer();
         }
   
         const path = req.file.path;
@@ -62,25 +82,25 @@ const uploadBlog = async (req, res, next) => {
               fs.unlinkSync(path);
               thumbnailObject = image;
 
-                const uploadToServer = async () => {
-                    const blog = new Blog({
-                        title: req.body.title,
-                        description: req.body.description,
-                        author: req.body.author,
-                        body: req.body.body,
-                        thumbnail: thumbnailObject
-                    });
-                    
-                    try {
-                        const newBlog = await blog.save();
-                        res.status(201).json(newBlog); 
-                    } catch(err) {
-                        res.status(400).json({ message: 'Something went wrong, please try again' });
-                    }
+              const uploadToServer = async () => {
+                const blog = new Blog({
+                    title: req.body.title,
+                    description: req.body.description,
+                    author: req.body.author,
+                    body: req.body.body,
+                    thumbnail: thumbnailObject
+                });
+                
+                try {
+                    const newBlog = await blog.save();
+                    res.status(201).json(newBlog); 
+                } catch(err) {
+                    res.status(400).json({ message: 'Something went wrong, please try again' });
                 }
-
-                uploadToServer();
             }
+
+            uploadToServer();
+          }
         )
     });
 }
