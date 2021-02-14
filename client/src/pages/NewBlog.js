@@ -35,15 +35,19 @@ const NewBlog = () => {
     };
     
     const sendData = async (data) => {
-        const response = await axios({
-            method: 'POST',
-            url: `/api/blogs`,
-            data: data,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        });
-        await console.log(response)
+        try {
+            const response = await axios({
+                method: 'POST',
+                url: `/api/blogs`,
+                data: data,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log(response.data);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return (
