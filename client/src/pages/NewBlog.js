@@ -38,7 +38,7 @@ const NewBlog = () => {
         try {
             const response = await axios({
                 method: 'POST',
-                url: `/api/blogs`,
+                url: `api/blogs/`,
                 data: data,
                 headers: {
                     'Content-Type': 'multipart/form-data'
