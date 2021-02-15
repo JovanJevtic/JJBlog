@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import '../styling/style.css';
-import { Image, Transformation } from 'cloudinary-react';
+import { Image } from 'cloudinary-react';
 
 const BlogsList = ({ blogs, title }) => {
 

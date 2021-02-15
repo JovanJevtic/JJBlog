@@ -28,7 +28,7 @@ const NewBlog = () => {
         blogData.append('title', title);
         blogData.append('author', author);
         blogData.append('description', description);
-        blogData.append('tbodyitle', body);
+        blogData.append('body', body);
         blogData.append('thumbnail', thumbnail);
 
         sendData(blogData);

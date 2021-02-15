@@ -6,13 +6,13 @@ import Loading from '../components/Loading';
 const BlogPage = () => {
     
     const { id } = useParams();    
-    const { data: blog, isLoading, error } = useFetch(`api/blogs/${id}`);
+    const { data: blog, isLoading, error } = useFetch(`/api/blogs/${id}/`);
 
     return (
         <div className="container">
             { blog && <Blog blog={blog} /> }
             { isLoading && <Loading /> }
-            { error && <h1>Something went wrong</h1> }
+            { error && <h1>{ error }</h1> }
         </div>
     );
 };

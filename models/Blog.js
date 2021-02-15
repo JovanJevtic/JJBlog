@@ -8,7 +8,7 @@ const BlogSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: false 
+        required: true 
     },
     author: {
         type: String,
@@ -20,7 +20,7 @@ const BlogSchema = new mongoose.Schema({
     },
     body: {
         type: String,
-        required: false 
+        required: true 
     },
     thumbnail: {
         asset_id: {
